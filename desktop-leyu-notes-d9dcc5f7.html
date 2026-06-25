@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu · 桌面端站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        /* 首页横幅 */
+        .hero {
+            background: linear-gradient(145deg, #e8ecf0 0%, #d9dee4 100%);
+            padding: 3.5rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.06), 0 6px 12px -4px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2.8rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #182230;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #3a4a5e;
+            max-width: 600px;
+            margin: 0.6rem auto 0;
+            border-top: 1px solid #bfcad6;
+            padding-top: 1.2rem;
+            font-weight: 350;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #fffffffc;
+            border-radius: 22px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.4rem;
+            box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8ee;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            color: #1c2a3b;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #8f9eb0;
+            padding-left: 1rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #2c3b4e;
+            font-size: 1rem;
+            max-width: 75ch;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #eef2f6;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-weight: 450;
+            color: #1f3247;
+        }
+
+        /* 内联链接 */
+        a {
+            color: #2f4b6e;
+            text-decoration: none;
+            border-bottom: 1px solid #b9c8da;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        a:hover {
+            color: #0b1b2e;
+            border-bottom-color: #0b1b2e;
+        }
+
+        .link-plain {
+            border-bottom: none;
+            font-weight: 420;
+        }
+
+        /* 特点场景两列 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .grid-2 .card {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+            .card {
+                padding: 1.8rem 1.5rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #eef2f7;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            margin: 2rem 0 2.2rem;
+            border: 1px solid #d7dfe8;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1b293c;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #cad3de;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            width: 8rem;
+            font-weight: 500;
+            color: #203144;
+            flex-shrink: 0;
+        }
+
+        .faq-a {
+            flex: 1;
+            color: #2f4055;
+            min-width: 200px;
+        }
+
+        @media (max-width: 520px) {
+            .faq-q {
+                width: 100%;
+                margin-bottom: 0.15rem;
+            }
+        }
+
+        /* 页尾 */
+        .footer-note {
+            text-align: center;
+            padding: 1.6rem 0.8rem 0.4rem;
+            color: #5f6f82;
+            font-size: 0.9rem;
+            border-top: 1px solid #d6dee8;
+            margin-top: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 首页横幅 -->
+    <div class="hero">
+        <h1>桌面端 · leyu</h1>
+        <div class="sub">面向日常操作与信息整合的轻量入口</div>
+    </div>
+
+    <!-- 背景说明 / 站点介绍 -->
+    <div class="card">
+        <h2>站点背景与定位</h2>
+        <p>
+            <span class="highlight">desktop‑leyu.com.cn</span> 是一个专注于桌面环境访问的辅助型站点。
+            不同于移动优先的页面聚合，该站点围绕固定屏幕下的浏览习惯，对内容模块做了结构化梳理。
+            其设计初衷是提供一种稳定、低干扰的信息获取方式，适用于办公、研究以及需要长时间专注的场景。
+        </p>
+        <p>
+            从技术架构来看，站点采用轻量化前端方案，对老旧设备与主流浏览器均有较好的兼容表现。
+            访问路径清晰，层级扁平，力求降低认知负荷。
+            对需要快速定位资源的用户而言，<a href="https://desktop-leyu.com.cn">leyu</a> 提供了一种不同于传统门户的纯粹体验。
+        </p>
+    </div>
+
+    <!-- 三段自然介绍 — 拆分两个卡片 + 一个独立段落区域 (风格微调) -->
+    <div class="grid-2">
+        <div class="card" style="margin-bottom:0;">
+            <h2>内容构成</h2>
+            <p>
+                站点目前主要收录实用工具索引、文档速查链接以及轻量资讯聚合。
+                每个分类都经过精简，避免过多层级嵌套。
+                同时保留了自定义快捷入口的余地，方便常驻用户按需调整。
+            </p>
+            <p>
+                模块之间没有冗余跳转，核心信息在前两屏即可完成浏览。
+                对于需要快速启动特定功能的用户来说，这种设计减少了不必要的中间步骤。
+            </p>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+            <h2>适用场景</h2>
+            <p>
+                日常办公中，固定标签页常常被各种通知打断。
+                而桌面端 <a href="https://desktop-leyu.com.cn">leyu</a> 更强调信息本身的优先级，通过分区卡片和克制配色降低视觉干扰。
+            </p>
+            <p>
+                另外在资料整理、多窗口协同工作流里，该站点可以作为左侧参考面板使用，配合系统分屏功能提升效率。
+                用户无需反复切换浏览器标签，即可维持上下文连贯。
+            </p>
+        </div>
+    </div>
+
+    <!-- 第三段自然介绍：以“可信说明”角度展开，嵌入链接 -->
+    <div class="card">
+        <h2>可信说明与更新原则</h2>
+        <p>
+            站点运营方明确承诺不采集敏感隐私，不植入第三方跟踪脚本。
+            所有资源链接均经过人工筛选，优先采用官方或稳定镜像源。
+            内容更新频率控制在每周一次至每月两次之间，侧重修正失效链接与补充新出现的有用工具。
+        </p>
+        <p>
+            用户如果需要反馈异常或提出建议，可以通过站内公开的邮箱地址联系维护团队。
+            对于链接的可靠性，<a href="https://desktop-leyu.com.cn">leyu</a> 会持续监测并记录可用状态，并在月度日志中简要公示。
+            这种透明的维护方式有利于建立长期信任。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 (非完整FAQ，仅摘要风格) -->
+    <div class="faq-summary">
+        <h3>常见疑问摘要</h3>
+        <div class="faq-item">
+            <span class="faq-q">是否需要注册？</span>
+            <span class="faq-a">当前版本无需登录，所有内容对访客开放。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">移动端适配？</span>
+            <span class="faq-a">主要面向桌面浏览器，移动端可访问但未做专门优化。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">内容版权？</span>
+            <span class="faq-a">站点仅提供链接索引，不存储第三方资源，引用均标注来源。</span>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <span>桌面端直达：<a href="https://desktop-leyu.com.cn" class="link-plain">leyu</a> · 建议使用 Chromium 或 Firefox 以获得最佳显示</span><br>
+        <span style="opacity:0.7;">© 2025 · 信息聚合 · 简洁中立</span>
+    </div>
+
+</div>
+</body>
+</html>
